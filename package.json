@@ -1,11 +1,15 @@
 {
   "name": "@tog-hackerspace/sensor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A hackerspace sensor library",
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/tsc",
     "test": "./node_modules/.bin/tsc; node ./js/test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tog-Hackerspace/sensor"
   },
   "author": "Sean Nicholls",
   "license": "MIT",
