@@ -1,0 +1,25 @@
+{
+  "name": "@tog/sensor",
+  "version": "0.0.1",
+  "description": "A hackerspace sensor library",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/tsc",
+    "test": "./node_modules/.bin/tsc; node ./js/test/"
+  },
+  "author": "Sean Nicholls",
+  "license": "MIT",
+  "dependencies": {
+    "@types/mqtt": "0.0.34",
+    "@types/uuid": "^3.0.0",
+    "bluebird": "^3.5.0",
+    "joi-browser": "^10.6.0",
+    "mqtt": "^2.9.1"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.8",
+    "@types/joi": "^10.4.0",
+    "@types/node": "^8.0.9",
+    "typescript": "^2.4.1"
+  }
+}
