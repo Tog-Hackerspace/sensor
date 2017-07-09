@@ -13,7 +13,7 @@ device projects using Espruino, with minimal hassle.
 # Getting started
 Install the libary to your Nodejs, Ionic, browser or other project:
 ````bash
-npm install --save @tog/sensor
+npm install --save @tog-hackerspace/sensor
 ````
 
 # Building as Javascript

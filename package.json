@@ -1,5 +1,5 @@
 {
-  "name": "@tog/sensor",
+  "name": "@tog-hackerspace/sensor",
   "version": "0.0.1",
   "description": "A hackerspace sensor library",
   "main": "index.js",
