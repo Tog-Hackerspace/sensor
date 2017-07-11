@@ -27,9 +27,6 @@ npm run build
 npm test
 ````
 
-# Examples
-A basic working example can be found in the examples folder /ts/examples
-
 # Warning: In Active Development
 
 This project is still under heavy active development. Use at your own peril.
