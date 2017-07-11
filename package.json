@@ -1,6 +1,6 @@
 {
   "name": "@tog-hackerspace/sensor",
-  "version": "0.0.5",
+  "version": "0.0.51",
   "description": "A hackerspace sensor library",
   "main": "index.js",
   "scripts": {
