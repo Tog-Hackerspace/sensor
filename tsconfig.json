@@ -4,9 +4,17 @@
     "module": "commonjs",
     "declaration": true,
     "outDir": "./js",
-    "strict": true
+    "strict": true,
+    "sourceMap": true,
+    "noImplicitAny": false
   },
   "files": [
-        "./typings/joi-browser.d.ts"
-    ]
+    "./typings/joi/index.d.ts"
+  ],
+  "include": [
+    "./ts/**/*"
+  ],
+  "exclude": [
+    "./ts/**/*.js"
+  ]
 }
