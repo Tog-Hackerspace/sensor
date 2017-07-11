@@ -1,13 +1,22 @@
-import { Client } from 'mqtt';
-import { Device } from '../device';
-import { DeviceType, AccessLevel, DeviceChannels } from '../device';
-export { AccessLevel, DeviceChannels } from '../device';
+import { IMessageTransport } from '../interfaces/transport';
+
+import {
+  Device,
+  DeviceType,
+  AccessLevel,
+  DeviceChannels
+} from '../device';
+
+export {
+  AccessLevel,
+  DeviceChannels
+} from '../device';
 
 export abstract class Switch extends Device {
 
     protected _state: boolean = false;
 
-    constructor(public client: Client,
+    constructor(public client: IMessageTransport,
                 protected _ackSchema: any,
                 protected _subSchema: any,
                 protected _ack: string[] = [], // acknowledgements from device

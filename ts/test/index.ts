@@ -1,16 +1,10 @@
-import * as mqtt from 'mqtt';
 import { SensorNetwork } from '../';
+import { MockTransport } from './mock';
 
-let host = 'localhost';
-let client = mqtt.connect('mqtt://' + host);
+//let host = 'localhost';
+//let client = mqtt.connect('mqtt://' + host);
 
-/*
-client.subscribe('/tog/#');
-
-client.on('message', (topic, msg) => {
-  console.log(topic, msg.toString());
-})
-*/
+let client = new MockTransport();
 
 let sensorNet = new SensorNetwork(client);
 

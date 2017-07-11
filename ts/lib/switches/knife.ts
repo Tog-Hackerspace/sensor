@@ -1,12 +1,12 @@
 import { AccessLevel, Switch } from './switch';
-import { Client } from 'mqtt';
+import { IMessageTransport } from '../interfaces/transport';
 import { Joi } from '../joi';
 import { AckSchema, SubSchema } from './knife.schema'
 
 export class KnifeSwitch extends Switch {
   public sensorPin = -1;
 
-  constructor(client: Client) {
+  constructor(client: IMessageTransport) {
     super(
       client,
       AckSchema,

@@ -1,5 +1,5 @@
 import events = require('events');
-import { Client } from 'mqtt';
+import { IMessageTransport } from './interfaces/transport';
 
 import { DeviceChannels } from './device';
 import { KnifeSwitch } from './switches/knife';
@@ -19,7 +19,7 @@ export class SensorNetwork extends events.EventEmitter {
     PowerSwitch: null,
   };
 
-  constructor(protected _client: Client) {
+  constructor(protected _client: IMessageTransport) {
     super();
     if(!_client) {
       throw new Error('MQTT Client is not an optional argument.');

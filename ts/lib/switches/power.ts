@@ -1,5 +1,5 @@
 import { AccessLevel, Switch } from './switch';
-import { Client } from 'mqtt';
+import { IMessageTransport } from '../interfaces/transport';
 import { Joi } from '../joi';
 import { AckSchema, SubSchema } from './power.schema'
 
@@ -8,7 +8,7 @@ export class PowerSwitch extends Switch {
   public lastUpdated: any = null;
   public socket: string = 'all';
 
-  constructor(client: Client) {
+  constructor(client: IMessageTransport) {
     super(
       client,
       AckSchema,

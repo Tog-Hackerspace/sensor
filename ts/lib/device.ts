@@ -1,6 +1,8 @@
 import events = require('events');
-import { Client } from 'mqtt';
 import { Joi } from './joi';
+
+import { IDevice } from './interfaces/device';
+import { IMessageTransport } from './interfaces/transport';
 
 export enum AccessLevel {
   READ_ONLY,
@@ -24,7 +26,7 @@ export abstract class Device extends events.EventEmitter {
   protected _updatePropertiesFromAcks: boolean = true;
 
   constructor(public type: DeviceType | Object,
-              public client: Client,
+              public client: IMessageTransport,
               protected _ackSchema: any,
               protected _subSchema: any,
               protected _ack: string[] = [], // acknowledgements from device
