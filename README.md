@@ -18,6 +18,7 @@ npm install --save @tog-hackerspace/sensor
 
 # Building as Javascript
 ````bash
+npm install
 npm run build
 ````
 
