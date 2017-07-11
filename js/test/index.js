@@ -1,16 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const mqtt = require("mqtt");
 const _1 = require("../");
-let host = 'localhost';
-let client = mqtt.connect('mqtt://' + host);
-/*
-client.subscribe('/tog/#');
-
-client.on('message', (topic, msg) => {
-  console.log(topic, msg.toString());
-})
-*/
+const mock_1 = require("./mock");
+//let host = 'localhost';
+//let client = mqtt.connect('mqtt://' + host);
+let client = new mock_1.MockTransport();
 let sensorNet = new _1.SensorNetwork(client);
 console.log('Disco power switches!');
 sensorNet.PowerSwitch.on('ack', (powerSwitch, ack) => {

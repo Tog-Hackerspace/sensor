@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import events = require('events');
-import { Client } from 'mqtt';
+import { IMessageTransport } from './interfaces/transport';
 export declare enum AccessLevel {
     READ_ONLY = 0,
     READ_WRITE = 1,
@@ -16,7 +16,7 @@ export declare class DeviceChannels {
 }
 export declare abstract class Device extends events.EventEmitter {
     type: DeviceType | Object;
-    client: Client;
+    client: IMessageTransport;
     protected _ackSchema: any;
     protected _subSchema: any;
     protected _ack: string[];
@@ -28,7 +28,7 @@ export declare abstract class Device extends events.EventEmitter {
     location: string;
     protected _accessLevel: AccessLevel;
     protected _updatePropertiesFromAcks: boolean;
-    constructor(type: DeviceType | Object, client: Client, _ackSchema: any, _subSchema: any, _ack?: string[], _sub?: string[], _pub?: string[], serial?: string, name?: string, description?: string, location?: string, _accessLevel?: AccessLevel);
+    constructor(type: DeviceType | Object, client: IMessageTransport, _ackSchema: any, _subSchema: any, _ack?: string[], _sub?: string[], _pub?: string[], serial?: string, name?: string, description?: string, location?: string, _accessLevel?: AccessLevel);
     getMQTT(): object;
     protected publish(...msgs: any[]): void;
     protected _assignAckPropertyValue(key: string, value: any): boolean;

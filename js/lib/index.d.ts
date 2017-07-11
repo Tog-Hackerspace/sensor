@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import events = require('events');
-import { Client } from 'mqtt';
+import { IMessageTransport } from './interfaces/transport';
 import { KnifeSwitch } from './switches/knife';
 import { PowerSwitch } from './switches/power';
 export declare class SensorChannels {
@@ -9,9 +9,9 @@ export declare class SensorChannels {
     static PowerSwitch: string;
 }
 export declare class SensorNetwork extends events.EventEmitter {
-    protected _client: Client;
+    protected _client: IMessageTransport;
     protected _sensors: any;
-    constructor(_client: Client);
+    constructor(_client: IMessageTransport);
     getMQTT(): any;
     readonly KnifeSwitch: KnifeSwitch;
     readonly PowerSwitch: PowerSwitch;

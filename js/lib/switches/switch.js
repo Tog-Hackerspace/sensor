@@ -1,16 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const device_1 = require("../device");
-const device_2 = require("../device");
-var device_3 = require("../device");
-exports.AccessLevel = device_3.AccessLevel;
-exports.DeviceChannels = device_3.DeviceChannels;
+var device_2 = require("../device");
+exports.AccessLevel = device_2.AccessLevel;
+exports.DeviceChannels = device_2.DeviceChannels;
 class Switch extends device_1.Device {
     constructor(client, _ackSchema, _subSchema, _ack = [], // acknowledgements from device
         _sub = [], // subscribe to data from device
         _pub = [], // publish topic
-        serial = '', name = '', description = '', location = 'unknown', _accessLevel = device_2.AccessLevel.READ_WRITE) {
-        super(device_2.DeviceType.Switch, client, _ackSchema, _subSchema, _ack, _sub, _pub, serial, name, description, location, _accessLevel);
+        serial = '', name = '', description = '', location = 'unknown', _accessLevel = device_1.AccessLevel.READ_WRITE) {
+        super(device_1.DeviceType.Switch, client, _ackSchema, _subSchema, _ack, _sub, _pub, serial, name, description, location, _accessLevel);
         this.client = client;
         this._ackSchema = _ackSchema;
         this._subSchema = _subSchema;
@@ -28,7 +27,7 @@ class Switch extends device_1.Device {
         return this._state;
     }
     set state(state) {
-        if (this._accessLevel != device_2.AccessLevel.READ_WRITE) {
+        if (this._accessLevel != device_1.AccessLevel.READ_WRITE) {
             return;
         }
         // don't set the state here

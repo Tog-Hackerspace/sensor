@@ -1,6 +1,6 @@
 import { Switch } from './switch';
-import { Client } from 'mqtt';
+import { IMessageTransport } from '../interfaces/transport';
 export declare class KnifeSwitch extends Switch {
     sensorPin: number;
-    constructor(client: Client);
+    constructor(client: IMessageTransport);
 }
