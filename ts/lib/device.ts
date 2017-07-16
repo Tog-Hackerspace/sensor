@@ -109,7 +109,7 @@ export abstract class Device extends events.EventEmitter implements IDevice {
     }
   }
 
-  protected publish(...msgs: any[]) {
+  public publish(...msgs: any[]): void {
     if(this._pub) {
       for(let message of msgs) {
         if(message instanceof Object) {
