@@ -1,9 +1,9 @@
 import events = require('events');
-import { IMessageTransport } from './interfaces/transport';
+import { IMessageTransport } from '../../lib/transport.d';
 
-import { DeviceChannels } from './device';
-import { KnifeSwitch } from './switches/knife';
-import { PowerSwitch } from './switches/power';
+import { DeviceChannels } from '../../lib/device';
+import { KnifeSwitch } from './knife';
+import { PowerSwitch } from './power';
 
 export class SensorChannels {
   public static All = 'message';

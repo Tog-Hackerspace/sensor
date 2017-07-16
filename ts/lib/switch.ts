@@ -1,16 +1,16 @@
-import { IMessageTransport } from '../interfaces/transport';
+import { IMessageTransport } from './transport.d';
 
 import {
   Device,
   DeviceType,
   AccessLevel,
   DeviceChannels
-} from '../device';
+} from './device';
 
 export {
   AccessLevel,
   DeviceChannels
-} from '../device';
+} from './device';
 
 export abstract class Switch extends Device {
 
@@ -40,22 +40,6 @@ export abstract class Switch extends Device {
               description,
               location,
               _accessLevel);
-    }
-
-    public get state() {
-      return this._state;
-    }
-
-    public set state(state: boolean) {
-      if(this._accessLevel != AccessLevel.READ_WRITE) { return; }
-      // don't set the state here
-      // wait for the ACK response
-      // TODO: make this behaviour optional
-      this.publish(this._onSetState(state));
-    }
-
-    protected _onSetState(state: boolean): any {
-      return null;
     }
 
     // manually assign the state variable

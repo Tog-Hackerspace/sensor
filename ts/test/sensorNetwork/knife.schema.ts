@@ -1,5 +1,5 @@
 
-import { Joi } from '../joi';
+import { Joi } from './joi';
 
 export const AckSchema = Joi.object().keys({
   sensor_pin:   Joi .number()

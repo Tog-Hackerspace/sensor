@@ -1,4 +1,4 @@
-import { SensorNetwork } from '../';
+import { SensorNetwork } from './sensorNetwork';
 import { MockTransport } from './mock';
 
 //let host = 'localhost';

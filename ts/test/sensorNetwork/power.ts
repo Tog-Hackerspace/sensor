@@ -1,6 +1,6 @@
-import { AccessLevel, Switch } from './switch';
-import { IMessageTransport } from '../interfaces/transport';
-import { Joi } from '../joi';
+import { AccessLevel, Switch } from '../../lib/switch';
+import { IMessageTransport } from '../../lib/transport';
+import { Joi } from '../../lib/joi';
 import { AckSchema, SubSchema } from './power.schema'
 
 export class PowerSwitch extends Switch {

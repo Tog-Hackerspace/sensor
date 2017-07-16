@@ -1,8 +1,8 @@
 import events = require('events');
-import { Joi } from './joi';
 
-import { IDevice } from './interfaces/device';
-import { IMessageTransport } from './interfaces/transport';
+import { Joi } from './joi';
+import { IDevice } from './device.d';
+import { IMessageTransport } from './transport.d';
 
 export enum AccessLevel {
   READ_ONLY,
@@ -20,7 +20,9 @@ export class DeviceChannels {
   public static UPDATE: string = 'update';
 }
 
-export abstract class Device extends events.EventEmitter {
+export abstract class Device extends events.EventEmitter implements IDevice {
+
+  protected _state: any = null;
 
   // update this object's properties on recieving an ACK
   protected _updatePropertiesFromAcks: boolean = true;
@@ -160,5 +162,26 @@ export abstract class Device extends events.EventEmitter {
 
   protected _onMessage(topic: string, message: Object) {
     // overloaded by children
+  }
+
+  public get state() {
+    return this._state;
+  }
+
+  public set state(state: any) {
+    if(this._onSetState(state)) {
+      return;
+    }
+    if(this._accessLevel != AccessLevel.READ_WRITE) { return; }
+    // don't set the state here
+    // wait for the ACK response
+    // TODO: make this behaviour optional
+    this.publish(this._onSetState(state));
+  }
+
+  // return true to interrupt default setState behaviour
+  protected _onSetState(state: any): boolean {
+    // implemented by children
+    return false;
   }
 }

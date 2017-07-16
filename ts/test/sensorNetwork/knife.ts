@@ -1,6 +1,6 @@
-import { AccessLevel, Switch } from './switch';
-import { IMessageTransport } from '../interfaces/transport';
-import { Joi } from '../joi';
+import { AccessLevel, Switch } from '../lib/switches/switch';
+import { IMessageTransport } from '../lib/interfaces/transport';
+import { Joi } from './joi';
 import { AckSchema, SubSchema } from './knife.schema'
 
 export class KnifeSwitch extends Switch {
