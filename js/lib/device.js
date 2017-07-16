@@ -36,6 +36,7 @@ class Device extends events.EventEmitter {
         this.description = description;
         this.location = location;
         this._accessLevel = _accessLevel;
+        this._state = null;
         // update this object's properties on recieving an ACK
         this._updatePropertiesFromAcks = true;
         for (let topic of _ack) {
@@ -159,6 +160,26 @@ class Device extends events.EventEmitter {
     }
     _onMessage(topic, message) {
         // overloaded by children
+    }
+    get state() {
+        return this._state;
+    }
+    set state(state) {
+        if (this._onSetState(state)) {
+            return;
+        }
+        if (this._accessLevel != AccessLevel.READ_WRITE) {
+            return;
+        }
+        // don't set the state here
+        // wait for the ACK response
+        // TODO: make this behaviour optional
+        this.publish(this._onSetState(state));
+    }
+    // return true to interrupt default setState behaviour
+    _onSetState(state) {
+        // implemented by children
+        return false;
     }
 }
 exports.Device = Device;

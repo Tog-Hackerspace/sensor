@@ -1,30 +1,26 @@
-import { SensorNetwork } from './sensorNetwork';
 import { MockTransport } from './mock';
+import { PowerSwitch } from './power';
 
 //let host = 'localhost';
 //let client = mqtt.connect('mqtt://' + host);
 
 let client = new MockTransport();
 
-let sensorNet = new SensorNetwork(client);
+let power = new PowerSwitch(client);
 
-console.log('Disco power switches!');
-
-
-sensorNet.PowerSwitch.on('ack', (powerSwitch, ack) => {
+power.on('ack', (powerSwitch, ack) => {
   console.log('ACK: ', ack);
 });
 
-sensorNet.PowerSwitch.on('message', (powerSwitch, msg) => {
+power.on('message', (powerSwitch, msg) => {
   console.log('Message: ', msg);
 });
 
-sensorNet.PowerSwitch.on('update', (powerSwitch, delta) => {
+power.on('update', (powerSwitch, delta) => {
   console.log('Update: ', delta);
 });
 
-
 setInterval(() => {
-  sensorNet.PowerSwitch.state = !sensorNet.PowerSwitch.state;
-  console.log('state', sensorNet.PowerSwitch.state);
+  power.state = !power.state;
+  console.log('state', power.state);
 }, 1500);

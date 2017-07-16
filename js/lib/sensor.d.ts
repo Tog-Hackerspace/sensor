@@ -1,4 +1,4 @@
-import { Device } from '../device';
+import { Device } from './device';
 export declare enum SensorType {
     Temperature = 0,
     Humidity = 1,

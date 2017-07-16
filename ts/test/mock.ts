@@ -1,4 +1,4 @@
-import { IMessageTransport, Callback } from '../lib/interfaces/transport';
+import { IMessageTransport, Callback } from '../lib/transport';
 
 export class MockTransport implements IMessageTransport {
 

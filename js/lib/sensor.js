@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const device_1 = require("../device");
+const device_1 = require("./device");
 var SensorType;
 (function (SensorType) {
     SensorType[SensorType["Temperature"] = 0] = "Temperature";

@@ -1,7 +1,10 @@
-import { AccessLevel, Switch } from '../../lib/switch';
-import { IMessageTransport } from '../../lib/transport';
-import { Joi } from '../../lib/joi';
-import { AckSchema, SubSchema } from './power.schema'
+import {
+  AccessLevel,
+  Switch,
+  IMessageTransport
+} from '../index';
+import { Joi } from '../lib/joi';
+import { PowerSwitchSchema } from './power.schema'
 
 export class PowerSwitch extends Switch {
 
@@ -11,8 +14,8 @@ export class PowerSwitch extends Switch {
   constructor(client: IMessageTransport) {
     super(
       client,
-      AckSchema,
-      SubSchema,
+      PowerSwitchSchema.ack,
+      PowerSwitchSchema.sub,
       ['/tog/sensors/rf/common_room/acks'],   // ACK
       ['/tog/sensors/rf/common_room'],        // MSG
       ['/tog/sensors/rf/common_room'],        // PUB

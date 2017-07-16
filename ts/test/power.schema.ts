@@ -1,7 +1,7 @@
 
-import { Joi } from './joi';
+import { Joi } from '../lib/joi';
 
-export const AckSchema = Joi.object().keys({
+const AckSchema = Joi.object().keys({
   state:        Joi .bool()
                     .required(),
 
@@ -14,4 +14,9 @@ export const AckSchema = Joi.object().keys({
 })
 .rename('when', 'lastUpdated')
 
-export const SubSchema = null;
+const SubSchema = null;
+
+export const PowerSwitchSchema = {
+  ack: AckSchema,
+  sub: SubSchema
+};

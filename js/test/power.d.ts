@@ -1,5 +1,4 @@
-import { Switch } from './switch';
-import { IMessageTransport } from '../interfaces/transport';
+import { Switch, IMessageTransport } from '../index';
 export declare class PowerSwitch extends Switch {
     lastUpdated: any;
     socket: string;

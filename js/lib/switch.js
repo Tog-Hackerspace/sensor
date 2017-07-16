@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const device_1 = require("../device");
-var device_2 = require("../device");
+const device_1 = require("./device");
+var device_2 = require("./device");
 exports.AccessLevel = device_2.AccessLevel;
 exports.DeviceChannels = device_2.DeviceChannels;
 class Switch extends device_1.Device {
@@ -22,21 +22,6 @@ class Switch extends device_1.Device {
         this.location = location;
         this._accessLevel = _accessLevel;
         this._state = false;
-    }
-    get state() {
-        return this._state;
-    }
-    set state(state) {
-        if (this._accessLevel != device_1.AccessLevel.READ_WRITE) {
-            return;
-        }
-        // don't set the state here
-        // wait for the ACK response
-        // TODO: make this behaviour optional
-        this.publish(this._onSetState(state));
-    }
-    _onSetState(state) {
-        return null;
     }
     // manually assign the state variable
     // as it is a setter, doing so automagically would
