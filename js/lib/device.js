@@ -165,10 +165,10 @@ class Device extends events.EventEmitter {
         return this._state;
     }
     set state(state) {
-        if (this._onSetState(state)) {
+        if (this._accessLevel != AccessLevel.READ_WRITE) {
             return;
         }
-        if (this._accessLevel != AccessLevel.READ_WRITE) {
+        if (this._onSetState(state)) {
             return;
         }
         // don't set the state here

@@ -169,10 +169,13 @@ export abstract class Device extends events.EventEmitter implements IDevice {
   }
 
   public set state(state: any) {
+    if(this._accessLevel != AccessLevel.READ_WRITE) {
+      return;
+    }
+
     if(this._onSetState(state)) {
       return;
     }
-    if(this._accessLevel != AccessLevel.READ_WRITE) { return; }
     // don't set the state here
     // wait for the ACK response
     // TODO: make this behaviour optional

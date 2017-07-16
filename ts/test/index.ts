@@ -1,8 +1,9 @@
 import { MockTransport } from './mock';
 import { PowerSwitch } from './power';
 
-//let host = 'localhost';
-//let client = mqtt.connect('mqtt://' + host);
+// import * as mqtt from 'mqtt';
+// let host = 'localhost';
+// let client = mqtt.connect('mqtt://' + host);
 
 let client = new MockTransport();
 

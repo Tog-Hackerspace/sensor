@@ -12,10 +12,11 @@ class PowerSwitch extends index_1.Switch {
         this.socket = 'all';
     }
     _onSetState(state) {
-        return {
+        this.publish({
             state: state,
             socket: this.socket
-        };
+        });
+        return true;
     }
 }
 exports.PowerSwitch = PowerSwitch;

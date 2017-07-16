@@ -14,7 +14,10 @@
   },
   "author": "Sean Nicholls",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "@types/mqtt": "0.0.34",
+    "mqtt": "^2.9.1"
+  },
   "devDependencies": {
     "@types/bluebird": "^3.5.8",
     "@types/node": "^8.0.9",
