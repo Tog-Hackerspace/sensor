@@ -4,8 +4,12 @@ import { IDeviceGroup } from './deviceGroup.d';
 
 export abstract class DeviceGroup extends events.EventEmitter implements IDeviceGroup {
 
-  protected _state: any;
   protected _devices: Array<IDevice> = new Array<IDevice>();
+
+  constructor(...devices: Array<IDevice>) {
+    super();
+    this._devices = devices;
+  }
 
   getDevices(): Array<IDevice> {
     return this._devices;
@@ -35,12 +39,21 @@ export abstract class DeviceGroup extends events.EventEmitter implements IDevice
     }
   }
 
-  // A device group
-  setState(state: any): boolean {
-    return false;
+  public getDevice(index: number): IDevice | null {
+    if(index < 0 || index > this._devices.length) { return null; }
+    return this._devices[index];
   }
-  getState(): any {
-    return this._state;
+
+  setState(state: any, index: number): void {
+    let device = this._getDeviceForIndex(index);
+    if(!device) { return; }
+    device.state = state;
+  }
+
+  getState(index: number): any {
+    let device = this._getDeviceForIndex(index);
+    if(!device) { return null; }
+    return device.state;
   }
 
   protected _getDeviceIndex(device: IDevice): number {
@@ -50,5 +63,12 @@ export abstract class DeviceGroup extends events.EventEmitter implements IDevice
       }
     }
     return -1;
+  }
+
+  protected _getDeviceForIndex(index: number): IDevice | null {
+    if(index < 0 || index > this._devices.length) {
+      return null;
+    }
+    return this._devices[index];
   }
 }

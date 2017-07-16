@@ -1,6 +1,6 @@
-import { IEventEmitter } from './eventEmitter.d';
+import events = require('events');
 
-export interface IDevice extends IEventEmitter {
+export interface IDevice extends events.EventEmitter {
 
   getMQTT(): object;
   publish(...msgs: any[]): void;

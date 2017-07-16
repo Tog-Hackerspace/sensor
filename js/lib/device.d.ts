@@ -32,7 +32,7 @@ export declare abstract class Device extends events.EventEmitter implements IDev
     protected _updatePropertiesFromAcks: boolean;
     constructor(type: DeviceType | Object, client: IMessageTransport, _ackSchema: any, _subSchema: any, _ack?: string[], _sub?: string[], _pub?: string[], serial?: string, name?: string, description?: string, location?: string, _accessLevel?: AccessLevel);
     getMQTT(): object;
-    protected publish(...msgs: any[]): void;
+    publish(...msgs: any[]): void;
     protected _assignAckPropertyValue(key: string, value: any): boolean;
     protected _onAcknowledgement(topic: string, message: any): boolean;
     protected _onMessage(topic: string, message: Object): void;

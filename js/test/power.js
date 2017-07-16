@@ -12,7 +12,7 @@ class PowerSwitch extends index_1.Switch {
         this.socket = 'all';
     }
     _onSetState(state) {
-        this.publish({
+        super.publish({
             state: state,
             socket: this.socket
         });

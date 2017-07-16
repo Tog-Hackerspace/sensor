@@ -2,9 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const events = require("events");
 class DeviceGroup extends events.EventEmitter {
-    constructor() {
-        super(...arguments);
+    constructor(...devices) {
+        super();
         this._devices = new Array();
+        this._devices = devices;
     }
     getDevices() {
         return this._devices;
@@ -30,12 +31,25 @@ class DeviceGroup extends events.EventEmitter {
             this.removeDevice(dev);
         }
     }
-    // A device group
-    setState(state) {
-        return false;
+    getDevice(index) {
+        if (index < 0 || index > this._devices.length) {
+            return null;
+        }
+        return this._devices[index];
     }
-    getState() {
-        return this._state;
+    setState(state, index) {
+        let device = this._getDeviceForIndex(index);
+        if (!device) {
+            return;
+        }
+        device.state = state;
+    }
+    getState(index) {
+        let device = this._getDeviceForIndex(index);
+        if (!device) {
+            return null;
+        }
+        return device.state;
     }
     _getDeviceIndex(device) {
         for (let i = 0; i < this._devices.length; i++) {
@@ -44,6 +58,12 @@ class DeviceGroup extends events.EventEmitter {
             }
         }
         return -1;
+    }
+    _getDeviceForIndex(index) {
+        if (index < 0 || index > this._devices.length) {
+            return null;
+        }
+        return this._devices[index];
     }
 }
 exports.DeviceGroup = DeviceGroup;

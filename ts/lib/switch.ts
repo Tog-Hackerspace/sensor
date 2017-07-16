@@ -14,8 +14,6 @@ export {
 
 export abstract class Switch extends Device {
 
-    protected _state: boolean = false;
-
     constructor(public client: IMessageTransport,
                 protected _ackSchema: any,
                 protected _subSchema: any,

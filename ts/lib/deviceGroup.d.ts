@@ -13,7 +13,8 @@ export interface IDeviceGroup {
   removeDevice(device: IDevice): void;
   removeDevices(array: Array<IDevice>): void;
 
-  setState(state: any): boolean;
-  getState(): any;
+  getDevice(index: number): IDevice | null;
+  setState(state: any, index: number): void;
+  getState(index: number): any;
 
 }

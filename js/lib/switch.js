@@ -21,7 +21,6 @@ class Switch extends device_1.Device {
         this.description = description;
         this.location = location;
         this._accessLevel = _accessLevel;
-        this._state = false;
     }
     // manually assign the state variable
     // as it is a setter, doing so automagically would

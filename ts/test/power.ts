@@ -27,9 +27,9 @@ export class PowerSwitch extends Switch {
     );
   }
 
-  protected _onSetState(state: boolean): any {
+  protected _onSetState(state: any): any {
 
-    this.publish({
+    super.publish({
       state: state,
       socket: this.socket
     });
